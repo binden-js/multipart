@@ -1,0 +1,7 @@
+{
+  "out": "docs",
+  "entryPoints": ["./index.ts"],
+  "exclude": ["test/**/*"],
+  "hideGenerator": true,
+  "gitRevision": "main"
+}
