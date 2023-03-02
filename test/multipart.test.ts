@@ -394,5 +394,8 @@ describe("Multipart", () => {
     deepEqual(response.status, 200);
   });
 
-  afterEach((done) => server.close(done));
+  afterEach((done) => {
+    server.closeIdleConnections();
+    server.close(done);
+  });
 });
