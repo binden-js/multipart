@@ -30,14 +30,23 @@ app.use("/formdata", new Router().post(formDataParser, next));
 
 ### Truncated `FormData`
 
-Set the `throw_limits` to `false`
+Set the `throw_limits` to `false` to avoid throwing errors. `FormData` might be truncated due to `config.limits` (See `busboy` [limits](https://github.com/mscdex/busboy/#api))
 
 ```typescript
 import { Multipart } from "@binden/multipart";
 
 const formDataParser = new Multipart({
   throw_limits: false,
-  config: { limits: { fields: 2, fileSize: 1024 } },
+  config: {
+    limits: {
+      fieldNameSize: 5,
+      fieldSize: 16 * 1024,
+      fields: 4,
+      fileSize: 128 * 1024,
+      files: 4,
+      parts: 6,
+    },
+  },
 });
 
 const next = (context) => {
