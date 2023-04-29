@@ -65,7 +65,7 @@
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.8",
     "ts-node": "^10.9.1",
-    "typedoc": "^0.23.26"
+    "typedoc": "^0.24.6"
   },
   "bugs": {
     "url": "https://github.com/binden-js/multipart/issues"
