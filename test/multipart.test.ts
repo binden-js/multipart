@@ -1,4 +1,4 @@
-/* eslint-disable init-declarations */
+/* eslint-disable init-declarations, @typescript-eslint/no-floating-promises */
 import { deepEqual, ok } from "node:assert/strict";
 import { File as NodeFile } from "node:buffer";
 import { request, Server } from "node:http";
