@@ -68,7 +68,7 @@ export class Multipart extends Middleware {
             .once("close", () => {
               fd.append(
                 name,
-                new NodeFile(chunks, filename, { type }) as File & NodeFile
+                new NodeFile(chunks, filename, { type }) as File & NodeFile,
               );
             })
             .on("data", (chunk: Buffer) => {

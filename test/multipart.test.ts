@@ -134,7 +134,7 @@ describe("Multipart", () => {
     const file11 = new NodeFile(
       [JSON.stringify({ hello: "world" })],
       "file11.json",
-      { type: "application/json" }
+      { type: "application/json" },
     );
     const file12 = new NodeFile(["<html></html>"], "file12.html", {
       type: "plain/html",
@@ -220,7 +220,7 @@ describe("Multipart", () => {
 
     app.use(
       new Multipart({ config: { limits: { fields: 1 } }, throw_limits: false }),
-      assert
+      assert,
     );
 
     const response = await fetch(url, { method: "POST", body });
@@ -232,11 +232,11 @@ describe("Multipart", () => {
     const body = new FormData();
     body.append(
       "file1",
-      new NodeFile([Buffer.allocUnsafe(50)], "file1.txt") as File & NodeFile
+      new NodeFile([Buffer.allocUnsafe(50)], "file1.txt") as File & NodeFile,
     );
     body.append(
       "file2",
-      new NodeFile([Buffer.allocUnsafe(150)], "file2.txt") as File & NodeFile
+      new NodeFile([Buffer.allocUnsafe(150)], "file2.txt") as File & NodeFile,
     );
 
     app.use(multipart({ limits: { files: 1 } }));
@@ -275,7 +275,7 @@ describe("Multipart", () => {
 
     app.use(
       new Multipart({ config: { limits: { files: 1 } }, throw_limits: false }),
-      assert
+      assert,
     );
 
     const response = await fetch(url, { method: "POST", body });
@@ -287,11 +287,11 @@ describe("Multipart", () => {
     const body = new FormData();
     body.append(
       "file1",
-      new NodeFile([Buffer.allocUnsafe(50)], "file1.txt") as File & NodeFile
+      new NodeFile([Buffer.allocUnsafe(50)], "file1.txt") as File & NodeFile,
     );
     body.append(
       "file2",
-      new NodeFile([Buffer.allocUnsafe(150)], "file2.txt") as File & NodeFile
+      new NodeFile([Buffer.allocUnsafe(150)], "file2.txt") as File & NodeFile,
     );
 
     app.use(multipart({ limits: { fileSize: 100 } }));
@@ -337,7 +337,7 @@ describe("Multipart", () => {
         config: { limits: { fileSize: 100 } },
         throw_limits: false,
       }),
-      assert
+      assert,
     );
 
     const response = await fetch(url, { method: "POST", body });
@@ -386,7 +386,7 @@ describe("Multipart", () => {
 
     app.use(
       new Multipart({ config: { limits: { parts: 2 } }, throw_limits: false }),
-      assert
+      assert,
     );
 
     const response = await fetch(url, { method: "POST", body });
