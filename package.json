@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@binden/commitlint-config": "^1.0.2",
-    "@binden/semantic-release-config": "^2.0.0",
+    "@binden/semantic-release-config": "^3.0.0",
     "@binden/tsconfig": "^2.0.0",
     "c8": "^9.1.0",
     "eslint-config-binden-ts": "^2.0.0",
