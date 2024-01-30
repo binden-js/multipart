@@ -1,4 +1,3 @@
-import { File as NodeFile } from "node:buffer";
 import { BindenError, Middleware, IMiddlewareParams, Context } from "binden";
 import busboy, { BusboyConfig } from "busboy";
 
@@ -32,7 +31,7 @@ export class Multipart extends Middleware {
       case "HEAD":
       case "OPTIONS":
       case "TRACE":
-        context.log.trace("Method does not support incoming body", { method });
+        log.trace("Method does not support incoming body", { method });
         return;
       default:
         break;
@@ -66,10 +65,7 @@ export class Multipart extends Middleware {
           const chunks: Buffer[] = [];
           stream
             .once("close", () => {
-              fd.append(
-                name,
-                new NodeFile(chunks, filename, { type }) as File & NodeFile,
-              );
+              fd.append(name, new File(chunks, filename, { type }));
             })
             .on("data", (chunk: Buffer) => {
               chunks.push(chunk);
