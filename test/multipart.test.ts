@@ -13,9 +13,11 @@ describe("Multipart", () => {
   let app: Binden;
   let server: Server;
 
-  beforeEach((done) => {
+  beforeEach(async () => {
     app = new Binden();
-    server = app.createServer().listen(port, done);
+    await new Promise<void>((resolve) => {
+      server = app.createServer().listen(port, resolve);
+    });
   });
 
   it("Skips when method is `GET`", async () => {
@@ -394,8 +396,16 @@ describe("Multipart", () => {
     deepEqual(response.status, 200);
   });
 
-  afterEach((done) => {
+  afterEach(async () => {
     server.closeIdleConnections();
-    server.close(done);
+    await new Promise<void>((resolve, reject) => {
+      server.close((error) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve();
+        }
+      });
+    });
   });
 });
