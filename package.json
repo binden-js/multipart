@@ -53,7 +53,7 @@
   },
   "peerDependencies": {
     "@types/busboy": "^1.5.4",
-    "binden": "^2.0.2"
+    "binden": "^2.0.3"
   },
   "devDependencies": {
     "@binden/commitlint-config": "^2.1.0",
