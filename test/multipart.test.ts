@@ -150,7 +150,7 @@ describe("Multipart", () => {
 
     const assert = async (context: Context): Promise<void> => {
       deepEqual(context.request.content_type?.type, "multipart/form-data");
-      ok(context.request.content_type.boundary);
+      ok(context.request.content_type.boundary !== null);
       const { body: actual } = context.request;
       ok(actual instanceof FormData);
       deepEqual(actual, body);
