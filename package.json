@@ -52,7 +52,7 @@
     "busboy": "^1.6.0"
   },
   "peerDependencies": {
-    "@types/busboy": "^1.5.3",
+    "@types/busboy": "^1.5.4",
     "binden": "^2.0.2"
   },
   "devDependencies": {
