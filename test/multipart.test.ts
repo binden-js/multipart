@@ -1,4 +1,4 @@
-/* eslint-disable init-declarations, @typescript-eslint/no-floating-promises */
+/* eslint-disable init-declarations, @typescript-eslint/no-floating-promises, sort-imports */
 import { deepEqual, ok } from "node:assert/strict";
 import { File as NodeFile } from "node:buffer";
 import { request, Server } from "node:http";
@@ -76,7 +76,7 @@ describe("Multipart", () => {
                 ok(response.statusCode === 200);
                 resolve();
               } catch (error) {
-                reject(error);
+                reject(error as Error);
               }
             });
         })
