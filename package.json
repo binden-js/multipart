@@ -1,6 +1,6 @@
 {
   "name": "@binden/multipart",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Binden middleware for parsing incoming FormData",
   "main": "./dist/index.js",
   "type": "module",
