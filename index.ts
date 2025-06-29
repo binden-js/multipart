@@ -1,5 +1,10 @@
-import { BindenError, Middleware, IMiddlewareParams, Context } from "binden";
-import busboy, { BusboyConfig } from "busboy";
+import {
+  BindenError,
+  type Context,
+  type IMiddlewareParams,
+  Middleware,
+} from "binden";
+import busboy, { type BusboyConfig } from "busboy";
 
 export type IMultipartConfig = Omit<BusboyConfig, "headers">;
 
@@ -26,6 +31,7 @@ export class Multipart extends Middleware {
     const { log, request } = context;
     const { headers, method, content_type } = request;
 
+    /* eslint-disable @typescript-eslint/switch-exhaustiveness-check */
     switch (method) {
       case "GET":
       case "HEAD":
